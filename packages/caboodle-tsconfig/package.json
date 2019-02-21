@@ -1,0 +1,16 @@
+{
+  "name": "caboodle-tsconfig",
+  "description": "Caboodle TypeScript configuration",
+  "version": "0.0.0",
+  "repository": "sebald/caboodle",
+  "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "caboodle",
+    "typescript",
+    "tsconfig"
+  ],
+  "files": [
+    "tsconfig.json"
+  ]
+}
