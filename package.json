@@ -1,0 +1,22 @@
+{
+  "name": "caboodle",
+  "description": "🗃 CLI toolbox for common tasks in projects",
+  "version": "0.0.1",
+  "repository": "sebald/caboodle",
+  "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^3.4.0"
+  },
+  "scripts": {
+    "lerna": "lerna"
+  }
+}
