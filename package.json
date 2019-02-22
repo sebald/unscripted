@@ -25,6 +25,7 @@
   },
   "scripts": {
     "lerna": "lerna",
-    "lint": "eslint \"packages/**/*.{js,ts}\""
+    "lint": "eslint \"packages/**/*.{js,ts}\"",
+    "typecheck": "tsc --noEmit"
   }
 }

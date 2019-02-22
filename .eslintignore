@@ -1,1 +1,2 @@
+# Dont lint the lint config
 packages/eslint-config-caboodle/index.js
