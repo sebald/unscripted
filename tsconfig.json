@@ -1,4 +1,4 @@
 {
-  "extends": "./packages/caboodle-tsconfig/tsconfig.base.json",
+  "extends": "caboodle-tsconfig",
   "exclude": ["node_modules"]
 }

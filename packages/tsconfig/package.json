@@ -11,6 +11,7 @@
     "tsconfig"
   ],
   "files": [
-    "tsconfig.json"
-  ]
+    "tsconfig.base.json"
+  ],
+  "tsconfig": "./tsconfig.base.json"
 }
