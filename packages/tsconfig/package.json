@@ -1,12 +1,12 @@
 {
-  "name": "caboodle-tsconfig",
-  "description": "Caboodle TypeScript configuration",
+  "name": "@unscripted/tsconfig",
+  "description": "unscripted TypeScript configuration",
   "version": "0.0.0",
-  "repository": "sebald/caboodle",
+  "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "caboodle",
+    "unscripted",
     "typescript",
     "tsconfig"
   ],

@@ -1,3 +1,3 @@
 {
-  "extends": "./packages/eslint-config-caboodle/index.js"
+  "extends": "./packages/eslint-config/index.js"
 }

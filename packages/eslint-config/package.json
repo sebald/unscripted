@@ -1,12 +1,12 @@
 {
-  "name": "eslint-config-caboodle",
-  "description": "Caboodle eslint configuration",
+  "name": "@unscripted/eslint-config",
+  "description": "unscripted eslint configuration",
   "version": "0.0.0",
-  "repository": "sebald/caboodle",
+  "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "caboodle",
+    "unscripted",
     "eslint",
     "lint"
   ],
