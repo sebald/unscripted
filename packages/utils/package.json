@@ -1,0 +1,31 @@
+{
+  "name": "caboodle-utils",
+  "description": "Caboodle utility functions",
+  "version": "0.0.0",
+  "repository": "sebald/caboodle",
+  "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "caboodle",
+    "utils"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@types/node": "11.9.5",
+    "pkg-up": "2.0.0",
+    "read-pkg-up": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/pkg-up": "2.0.0",
+    "@types/read-pkg-up": "3.0.1",
+    "caboodle-tsconfig": "file:../tsconfig",
+    "typescript": "3.3.3333"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf lib"
+  }
+}
