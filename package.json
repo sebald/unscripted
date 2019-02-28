@@ -1,8 +1,8 @@
 {
-  "name": "caboodle",
+  "name": "unscripted-monorepo",
   "description": "🗃 CLI toolbox for common tasks in projects",
   "version": "0.0.1",
-  "repository": "sebald/caboodle",
+  "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
   "license": "MIT",
   "private": true,
