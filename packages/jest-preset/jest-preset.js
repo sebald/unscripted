@@ -5,7 +5,7 @@ module.exports = {
 
   // Paths
   // ---------------
-  roots: ['<rootDir>/app', '<rootDir>/database', '<rootDir>/domain'],
+  roots: ['<rootDir>'],
   testMatch: ['**/*.test.ts?(x)'],
 
   // Coverage

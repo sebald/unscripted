@@ -1,4 +1,4 @@
-# `jest-preset-caboodle`
+# `jest-preset-unscripted`
 
 > TODO: description
 
