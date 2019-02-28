@@ -1,6 +1,6 @@
 {
-  "name": "@unscripted/jest-preset",
-  "description": "Jest preset for unscripted",
+  "name": "@unscripted/jest-config",
+  "description": "Jest config for unscripted",
   "version": "0.0.0",
   "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
@@ -11,9 +11,12 @@
     "test",
     "test runner"
   ],
-  "main": "jest-preset.js",
+  "main": "jest-config.js",
   "files": [
-    "jest-preset.js"
+    "jest-config.js"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "prettier": "1.16.4",
+    "ts-jest": "24.0.0"
+  }
 }
