@@ -3296,7 +3296,7 @@ jest-cli@^24.1.0:
     which "^1.2.12"
     yargs "^12.0.2"
 
-jest-config@^24.1.0:
+jest-config@24.1.0, jest-config@^24.1.0:
   version "24.1.0"
   resolved "https://registry.yarnpkg.com/jest-config/-/jest-config-24.1.0.tgz#6ea6881cfdd299bc86cc144ee36d937c97c3850c"
   integrity sha512-FbbRzRqtFC6eGjG5VwsbW4E5dW3zqJKLWYiZWhB0/4E5fgsMw8GODLbGSrY5t17kKOtCWb/Z7nsIThRoDpuVyg==
