@@ -1,17 +1,19 @@
 {
-  "name": "@unscripted/tsconfig",
-  "description": "unscripted TypeScript configuration",
+  "name": "@unscripted/jest-preset",
+  "description": "Jest preset for unscripted",
   "version": "0.0.0",
   "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
   "license": "MIT",
   "keywords": [
     "unscripted",
-    "typescript",
-    "tsconfig"
+    "jest",
+    "test",
+    "test runner"
   ],
+  "main": "jest-preset.js",
   "files": [
-    "tsconfig.base.json"
+    "jest-preset.js"
   ],
-  "tsconfig": "./tsconfig.base.json"
+  "dependencies": {}
 }

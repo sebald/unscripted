@@ -1,4 +1,4 @@
-# `caboodle-tsconfig`
+# `unscripted-tsconfig`
 
 > TODO: description
 
