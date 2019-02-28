@@ -1,2 +1,4 @@
 # Dont lint the lint config
 packages/eslint-config/index.js
+
+jest.config.js

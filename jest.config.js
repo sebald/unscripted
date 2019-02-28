@@ -1,3 +1,1 @@
-module.exports = {
-  preset: './packages/jest-preset',
-};
+module.exports = require('./packages/jest-config');
