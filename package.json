@@ -28,6 +28,7 @@
   "scripts": {
     "lerna": "lerna",
     "test": "jest --config jest.config.js",
+    "ci": "jest --config jest.config.js --coverage",
     "lint": "eslint \"packages/**/*.{js,ts}\"",
     "typecheck": "tsc --noEmit"
   }
