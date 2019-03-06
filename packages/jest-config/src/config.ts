@@ -2,7 +2,6 @@ export default {
   // Setup
   // ---------------
   preset: 'ts-jest',
-  shkasd: 'asgasd',
 
   // Paths
   // ---------------
