@@ -3460,7 +3460,7 @@ jest-cli@^24.3.0:
     realpath-native "^1.1.0"
     yargs "^12.0.2"
 
-jest-config@24.3.0, jest-config@^24.3.0:
+jest-config@^24.3.0:
   version "24.3.0"
   resolved "https://registry.yarnpkg.com/jest-config/-/jest-config-24.3.0.tgz#d12296b5a8f700b13fb31eaea7c30f5473aab1a5"
   integrity sha512-GrPEBZ1nIQ6KnHHNiQYN30ekJG+w7l2IWRctCQUDKbmV5IE5bnirz8tHpMzkTHyClZH2g1NcvW2tUX0Glqgp4A==
