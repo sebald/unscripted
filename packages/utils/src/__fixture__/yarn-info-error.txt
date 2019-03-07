@@ -1,1 +1,0 @@
-{"type":"error","data":"Cannot find the root of your workspace - are you sure you're currently in a workspace?"}

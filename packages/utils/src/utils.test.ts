@@ -1,7 +1,6 @@
-import _execa from 'execa';
-import { createReadStream } from 'fs';
-import { join } from 'path';
+import { sync } from 'execa';
 
+import * as log from './__fixture__/yarn-info';
 import { getProjetRoot, getWorkspaces } from './utils';
 
 jest.mock('find-up', () =>
@@ -11,10 +10,10 @@ jest.mock('find-up', () =>
 );
 
 jest.mock('execa');
-const execa = (_execa as any) as jest.Mock;
+const execaSync = (sync as any) as jest.Mock;
 
 beforeEach(() => {
-  execa.mockClear();
+  execaSync.mockClear();
 });
 
 test('get project root', async () => {
@@ -24,13 +23,14 @@ test('get project root', async () => {
   );
 });
 
-test('get workspaces (within monorepo)', async () => {
-  const stream = createReadStream(
-    join(__dirname, '__fixture__/yarn-info-json.txt')
-  );
-  execa.mockReturnValue({ stdout: stream });
+test('get workspaces (within monorepo)', () => {
+  execaSync.mockReturnValue({ stdout: log.info });
 
-  const ws = await getWorkspaces(__dirname);
+  const ws = getWorkspaces(__dirname);
+  if (ws === null) {
+    throw new Error('No workspaces.');
+  }
+
   expect(Object.values(ws)).toEqual(
     expect.arrayContaining([
       expect.objectContaining({
@@ -42,15 +42,7 @@ test('get workspaces (within monorepo)', async () => {
   );
 });
 
-test('get workspaces (no in monorepo)', async () => {
-  const stream = createReadStream(
-    join(__dirname, '__fixture__/yarn-info-error.txt')
-  );
-  execa.mockReturnValue({ stdout: stream });
-
-  await expect(
-    getWorkspaces(__dirname)
-  ).rejects.toThrowErrorMatchingInlineSnapshot(
-    `"Cannot find the root of your workspace - are you sure you're currently in a workspace?"`
-  );
+test('get workspaces (no in monorepo)', () => {
+  execaSync.mockReturnValue({ stdout: log.error });
+  expect(getWorkspaces(__dirname)).toEqual(null);
 });
