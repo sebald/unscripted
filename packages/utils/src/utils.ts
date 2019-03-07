@@ -23,6 +23,11 @@ export type YarnWorkspace = {
 };
 
 /**
+ * Map of yarn workspaces.
+ */
+export type YarnWorkspaces = { [name: string]: YarnWorkspace };
+
+/**
  * Yarn workspaces stdout.
  */
 export type YarnWorkspacesStdout = {
@@ -36,9 +41,7 @@ export type YarnWorkspacesStdout = {
  *
  * @param cwd current working directory
  */
-export const getWorkspaces = async (
-  cwd: string
-): Promise<{ [name: string]: YarnWorkspace }> => {
+export const getWorkspaces = async (cwd: string): Promise<YarnWorkspaces> => {
   const stream = execa('yarn', ['workspaces', 'info', '--json'], { cwd })
     .stdout;
   if (!stream) {
