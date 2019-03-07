@@ -1,5 +1,5 @@
 {
-  "name": "caboodle-utils",
+  "name": "@unscripted/utils",
   "description": "Caboodle utility functions",
   "version": "0.0.0",
   "repository": "sebald/caboodle",
@@ -14,12 +14,12 @@
     "lib"
   ],
   "dependencies": {
-    "@types/node": "11.9.5",
     "find-up": "3.0.0"
   },
   "devDependencies": {
     "@types/find-up": "2.1.1",
-    "@unscripted/tsconfig": "file:../tsconfig",
+    "@types/node": "11.9.5",
+    "@unscripted/tsconfig": "*",
     "typescript": "3.3.3333"
   },
   "scripts": {

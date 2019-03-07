@@ -1,4 +1,10 @@
 {
   "extends": "@unscripted/tsconfig",
-  "exclude": ["node_modules"]
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@unscripted/*": ["packages/*/src"]
+    }
+  },
+  "exclude": ["node_modules", "lib"]
 }
