@@ -3,7 +3,7 @@
 import { resolve } from 'path';
 const { readConfig } = require('jest-config');
 
-import config from './config';
+import { config } from './config';
 
 test('jest config', () => {
   const { hasDeprecationWarnings, projectConfig } = readConfig(

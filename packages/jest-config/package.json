@@ -17,7 +17,6 @@
     "lib"
   ],
   "dependencies": {
-    "@unscripted/utils": "*",
     "jest-watch-typeahead": "0.2.1",
     "prettier": "1.16.4",
     "ts-jest": "24.0.0"
@@ -27,6 +26,6 @@
     "clean": "rm -rf lib"
   },
   "devDependencies": {
-    "jest-config": "24.1.0"
+    "jest-config": "24.3.0"
   }
 }

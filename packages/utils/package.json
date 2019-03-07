@@ -14,11 +14,9 @@
     "lib"
   ],
   "dependencies": {
-    "execa": "1.0.0",
     "find-up": "3.0.0"
   },
   "devDependencies": {
-    "@types/execa": "0.9.0",
     "@types/find-up": "2.1.1",
     "@types/node": "11.9.5",
     "@unscripted/tsconfig": "*",
