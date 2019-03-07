@@ -13,8 +13,7 @@
   ],
   "main": "index.js",
   "files": [
-    "index.js",
-    "lib"
+    "index.js"
   ],
   "dependencies": {
     "jest-watch-typeahead": "0.2.1",
@@ -24,8 +23,5 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf lib"
-  },
-  "devDependencies": {
-    "jest-config": "24.3.0"
   }
 }
