@@ -8,8 +8,8 @@ import { EOL } from 'os';
  *
  * @param cwd current working directory
  */
-export const getProjetRoot = async (cwd: string): Promise<string | null> => {
-  const pkg = await find('package.json', { cwd });
+export const getProjetRoot = (cwd: string): string | null => {
+  const pkg = find.sync('package.json', { cwd });
   return pkg ? dirname(pkg) : null;
 };
 
@@ -36,12 +36,12 @@ export type YarnWorkspacesStdout = {
 };
 
 /**
- * Get yarn workspaces. Will throw if used in a project that does not
- * have workspaces enabled.
+ * Get yarn workspace information.
+ * Will throw if used in a project that does not have workspaces enabled.
  *
  * @param cwd current working directory
  */
-export const getWorkspaces = (cwd: string): YarnWorkspaces | null => {
+export const getWorkspacesInfo = (cwd: string): YarnWorkspaces | null => {
   const output = execa
     .sync('yarn', ['workspaces', 'info', '--json'], { cwd })
     .stdout.split(EOL)
