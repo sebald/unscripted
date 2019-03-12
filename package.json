@@ -16,14 +16,16 @@
   "devDependencies": {
     "@types/jest": "24.0.9",
     "@typescript-eslint/eslint-plugin": "1.4.0",
+    "conventional-changelog-cli": "2.0.12",
+    "conventional-changelog-emojis": "3.0.1",
     "eslint": "5.14.1",
     "eslint-config-prettier": "4.0.0",
     "eslint-config-xo": "0.26.0",
     "eslint-config-xo-typescript": "0.8.0",
     "eslint-plugin-jest": "22.3.0",
-    "jest": "24.1.0",
-    "lerna": "3.4.0",
-    "typescript": "3.3.3"
+    "jest": "24.3.0",
+    "lerna": "3.13.1",
+    "typescript": "3.3.3333"
   },
   "scripts": {
     "lerna": "lerna",
@@ -31,6 +33,7 @@
     "test": "jest --config jest.config.js",
     "ci": "jest --config jest.config.js --coverage",
     "lint": "eslint \"packages/**/*.{js,ts}\"",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "version": "conventional-changelog -p emojis -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   }
 }
