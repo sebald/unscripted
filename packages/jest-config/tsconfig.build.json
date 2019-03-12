@@ -1,0 +1,10 @@
+{
+  "extends": "@unscripted/tsconfig",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "lib",
+    "declaration": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["lib", "node_modules", "*/**.test.ts"]
+}
