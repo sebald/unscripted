@@ -13,7 +13,14 @@ export type PackageJson = {
  * Yarn workspace information.
  */
 export type YarnWorkspace = {
+  /**
+   * Relative location from the workspace root.
+   */
   location: string;
+
+  /**
+   * List of package names that are local.
+   */
   workspaceDependencies: string[];
   mismatchedWorkspaceDependencies: string[];
 };
@@ -22,7 +29,14 @@ export type YarnWorkspace = {
  * Map of yarn workspaces.
  */
 export type YarnWorkspaceInfo = {
+  /**
+   * Absolute path to the workspace root
+   */
   path: string;
+
+  /**
+   * Map of local packages and their worspace information.
+   */
   workspaces: { [name: string]: YarnWorkspace };
 };
 
