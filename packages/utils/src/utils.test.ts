@@ -1,37 +1,31 @@
-import { sync } from 'execa';
+import { tmpdir } from 'os';
+import path from 'path';
 
-import * as log from './__fixture__/yarn-info';
-import { getProjetRoot, getWorkspacesInfo } from './utils';
+import { findWorkspaceRoot, getWorkspacesInfo } from './utils';
 
-jest.mock('find-up', () =>
-  jest.fn((_: string, { cwd }: { cwd: string }) =>
-    cwd === 'no/pe' ? null : cwd
-  )
-);
+test('find workspace root (within monorepo)', () => {
+  const ws = findWorkspaceRoot(__dirname);
+  if (ws === null) {
+    throw new Error('No workspaces found.');
+  }
 
-jest.mock('execa');
-const execaSync = (sync as any) as jest.Mock;
-
-beforeEach(() => {
-  execaSync.mockClear();
+  expect(path.relative(__dirname, ws)).toMatchInlineSnapshot(`"../../.."`);
 });
 
-test('get project root', () => {
-  expect(getProjetRoot('no/pe')).resolves.toMatchInlineSnapshot(`null`);
-  expect(getProjetRoot('custom/path')).resolves.toMatchInlineSnapshot(
-    `"custom"`
-  );
+test('find workspace root (not in monorepo)', () => {
+  expect(findWorkspaceRoot(tmpdir())).toMatchInlineSnapshot(`null`);
 });
 
 test('get workspaces (within monorepo)', () => {
-  execaSync.mockReturnValue({ stdout: log.info });
-
-  const ws = getWorkspacesInfo(__dirname);
-  if (ws === null) {
+  const info = getWorkspacesInfo(__dirname);
+  if (info === null) {
     throw new Error('No workspaces.');
   }
 
-  expect(Object.values(ws)).toEqual(
+  expect(path.relative(__dirname, info.path)).toMatchInlineSnapshot(
+    `"../../.."`
+  );
+  expect(Object.values(info.workspaces)).toEqual(
     expect.arrayContaining([
       expect.objectContaining({
         location: expect.any(String),
@@ -42,7 +36,6 @@ test('get workspaces (within monorepo)', () => {
   );
 });
 
-test('get workspaces (no in monorepo)', () => {
-  execaSync.mockReturnValue({ stdout: log.error });
-  expect(getWorkspacesInfo(__dirname)).toEqual(null);
+test('get workspaces (not in monorepo)', () => {
+  expect(getWorkspacesInfo(tmpdir())).toEqual(null);
 });
