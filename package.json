@@ -7,7 +7,9 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "config/*",
+    "scripts/*",
+    "utils"
   ],
   "engines": {
     "node": ">=10"
