@@ -1,0 +1,36 @@
+{
+  "name": "@unscripted/create",
+  "description": "Create a new module",
+  "version": "0.0.0",
+  "repository": "sebald/caboodle",
+  "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "unscripted",
+    "command",
+    "create",
+    "module",
+    "pacakge"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@unscripted/utils": "*",
+    "ink": "2.0.6",
+    "ink-text-input": "3.0.0",
+    "react": "16.8.4"
+  },
+  "devDependencies": {
+    "@types/ink-text-input": "file:../../@types/ink-text-input",
+    "@types/node": "11.9.5",
+    "@types/react": "16.8.8",
+    "@unscripted/tsconfig": "*",
+    "typescript": "3.3.3333"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf lib"
+  }
+}
