@@ -1,12 +1,12 @@
 {
   "name": "@unscripted/utils",
-  "description": "Caboodle utility functions",
+  "description": "unscripted utility functions",
   "version": "0.0.0",
-  "repository": "sebald/caboodle",
+  "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "caboodle",
+    "unscripted",
     "utils"
   ],
   "main": "lib/utils.js",

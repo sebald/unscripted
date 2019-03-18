@@ -1,11 +1,11 @@
-# `caboodle-utils`
+# `@unscripted/utils`
 
 > TODO: description
 
 ## Usage
 
 ```
-const caboodleUtils = require('caboodle-utils');
+const utils = require('utils');
 
 // TODO: DEMONSTRATE API
 ```

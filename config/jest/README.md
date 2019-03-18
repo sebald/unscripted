@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const caboodleUtils = require('jest-preset-caboodle');
+const preset = require('jest-preset');
 
 // TODO: DEMONSTRATE API
 ```
