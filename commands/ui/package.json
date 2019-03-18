@@ -28,7 +28,8 @@
     "@types/node": "11.9.5",
     "@types/react": "16.8.8",
     "@unscripted/tsconfig": "*",
-    "ink-testing-library": "1.0.1"
+    "ink-testing-library": "1.0.1",
+    "strip-ansi": "5.2.0"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
