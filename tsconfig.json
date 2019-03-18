@@ -1,10 +1,11 @@
 {
-  "extends": "@unscripted/tsconfig",
+  "extends": "@unscripted/tsconfig/react",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@unscripted/*": ["config/*/src", "commands/*/src", "utils/*"]
+      "@unscripted/utils": ["utils/src"],
+      "@unscripted/*": ["config/*/src", "commands/*/src"]
     }
   },
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["**/node_modules/*", "**/lib/*"]
 }
