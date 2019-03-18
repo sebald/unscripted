@@ -6,6 +6,11 @@ import { EOL } from 'os';
 import { YarnWorkspaceInfo, YarnWorkspacesStdout, PackageJson } from './types';
 
 /**
+ * Re-export types for easy access.
+ */
+export { YarnWorkspaceInfo, YarnWorkspacesStdout, PackageJson };
+
+/**
  * Try to read `package.json` in the current directory (`cwd`).
  *
  * @param cwd current working directory
