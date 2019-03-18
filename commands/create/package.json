@@ -26,8 +26,7 @@
     "@types/ink-text-input": "file:../../@types/ink-text-input",
     "@types/node": "11.9.5",
     "@types/react": "16.8.8",
-    "@unscripted/tsconfig": "*",
-    "typescript": "3.3.3333"
+    "@unscripted/tsconfig": "*"
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
