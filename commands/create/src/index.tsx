@@ -4,6 +4,7 @@ import { render } from 'ink';
 import { getWorkspacesInfo } from '@unscripted/utils';
 import { Create } from './Create';
 
-const workspaces = getWorkspacesInfo(process.cwd());
+const info = getWorkspacesInfo(process.cwd()) || { workspaces: {} };
+console.log(info.workspaces);
 
-render(<Create cwd={process.cwd()} />);
+render(<Create workspaces={info.workspaces} />);

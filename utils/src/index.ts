@@ -8,7 +8,7 @@ import { YarnWorkspaceInfo, YarnWorkspacesStdout, PackageJson } from './types';
 /**
  * Re-export types for easy access.
  */
-export { YarnWorkspaceInfo, YarnWorkspacesStdout, PackageJson };
+export * from './types';
 
 /**
  * Try to read `package.json` in the current directory (`cwd`).
