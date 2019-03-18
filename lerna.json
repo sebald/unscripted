@@ -10,5 +10,10 @@
       "message": "🔖 %s"
     }
   },
-  "ignoreChanges": ["**/__fixtures__/**", "**/*.test.ts", "**/*.md"]
+  "ignoreChanges": [
+    "**/lib/**",
+    "**/__fixtures__/**",
+    "**/*.test.ts",
+    "**/*.md"
+  ]
 }
