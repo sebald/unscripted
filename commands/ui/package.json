@@ -1,0 +1,36 @@
+{
+  "name": "@unscripted/ui",
+  "description": "Unscripted Ink-based UI",
+  "version": "0.0.0",
+  "repository": "sebald/caboodle",
+  "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "unscripted",
+    "command",
+    "ui",
+    "prompt",
+    "ink"
+  ],
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "ink": "2.0.6",
+    "ink-text-input": "3.0.0",
+    "react": "16.8.4"
+  },
+  "devDependencies": {
+    "@types/ink-text-input": "file:../../@types/ink-text-input",
+    "@types/node": "11.9.5",
+    "@types/react": "16.8.8",
+    "@unscripted/tsconfig": "*",
+    "ink-testing-library": "1.0.1",
+    "typescript": "3.3.3333"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf lib"
+  }
+}
