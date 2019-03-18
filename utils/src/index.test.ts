@@ -1,7 +1,7 @@
 import { tmpdir } from 'os';
 import path from 'path';
 
-import { findWorkspaceRoot, getWorkspacesInfo } from './utils';
+import { findWorkspaceRoot, getWorkspacesInfo } from '.';
 
 test('find workspace root (within monorepo)', () => {
   const ws = findWorkspaceRoot(__dirname);

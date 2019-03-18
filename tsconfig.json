@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@unscripted/*": ["packages/*/src"]
+      "@unscripted/*": ["config/*/src", "commands/*/src", "utils/*"]
     }
   },
   "exclude": ["node_modules", "lib"]

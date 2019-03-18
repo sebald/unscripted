@@ -9,7 +9,7 @@
     "unscripted",
     "utils"
   ],
-  "main": "lib/utils.js",
+  "main": "lib/index.js",
   "files": [
     "lib"
   ],
