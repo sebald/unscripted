@@ -1,4 +1,4 @@
 # Dont lint config files (b/c they are using `require`)
-config/eslint/index.js
+config/eslint/*.js
 config/jest/index.js
 jest.config.js
