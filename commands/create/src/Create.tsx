@@ -2,13 +2,14 @@
 import { Box, Color } from 'ink';
 import TextInput from 'ink-text-input';
 import React, { useState } from 'react';
+import { YarnWorkspaceInfo } from '@unscripted/utils/types';
 
 export type CreateProps = {
-  cwd: string;
+  workspaces?: YarnWorkspaceInfo;
 };
 
 export const Create: React.FC<CreateProps> = ({ cwd }) => {
-  // const workspaces = getWorkspacesInfo(cwd);
+  const workspaces = getWorkspacesInfo(cwd);
   const [moduleName, setModuleName] = useState('');
 
   return (
