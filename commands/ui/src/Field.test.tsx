@@ -10,7 +10,14 @@ afterEach(() => {
 
 test('render field', () => {
   const { lastFrame } = render(
-    <Field label="Label" initialValue="foo" onSubmit={jest.fn()}/>
+    <Field label="Label" initialValue="foo" onSubmit={jest.fn()} />
   );
   expect(strip(lastFrame())).toMatchInlineSnapshot(`"Label: foo"`);
+});
+
+test('render field', () => {
+  const { lastFrame } = render(
+    <Field label="Label" initialValue="bar" onSubmit={jest.fn()} />
+  );
+  expect(strip(lastFrame())).toMatchInlineSnapshot(`"Label: bar"`);
 });

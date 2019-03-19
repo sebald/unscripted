@@ -33,6 +33,7 @@
     "typescript": "3.3.3333"
   },
   "scripts": {
+    "start": "lerna run watch",
     "lerna": "lerna",
     "build": "lerna run build",
     "test": "jest --config jest.config.js",
