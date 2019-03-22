@@ -1,28 +1,38 @@
 import React from 'react';
 
 import { YarnWorkspace } from '@unscripted/utils';
-import { Field } from '@unscripted/ui';
+import { Wizard, WizardQuestion, WizardResult } from '@unscripted/ui';
 
 export type CreateProps = {
+  exit: () => void;
   workspaces: {
     [name: string]: YarnWorkspace;
   };
 };
 
-export const Create: React.FC<CreateProps> = ({ workspaces }) => {
-  const validate = (val: string) => {
-    const ws = workspaces[val];
-    return ws ? 'An module with that name already exists.' : true;
+export const Create: React.FC<CreateProps> = ({ exit }) => {
+  // Const validate = (val: string) => {
+  //   const ws = workspaces[val];
+  //   return ws ? 'An module with that name already exists.' : true;
+  // };
+
+  const done = (result: WizardResult) => {
+    process.stdin.write(JSON.stringify(result));
+    exit();
   };
 
-  const handleSubmit = (val: string) => console.log(val);
+  const questions: WizardQuestion[] = [
+    {
+      label: 'Enter name:',
+      name: 'name',
+      type: 'text',
+    },
+    {
+      label: 'Enter location:',
+      name: 'location',
+      type: 'text',
+    },
+  ];
 
-  return (
-    <Field
-      label="Enter name of new module"
-      initialValue=""
-      validate={validate}
-      onSubmit={handleSubmit}
-    />
-  );
+  return <Wizard questions={questions} onDone={done}/>;
 };
