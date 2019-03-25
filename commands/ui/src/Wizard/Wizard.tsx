@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Field } from '../Field/Field';
+import * as Field from '../Field';
 import { useWizard, WizardQuestion } from './useWizard';
 
 // Types
@@ -29,15 +29,14 @@ export const Wizard: React.FC<WizardProps> = ({ questions, onDone }) => {
   return (
     <>
       {questions.slice(0, idx).map(q => (
-        <Field
+        <Field.ReadOnly
           key={q.name}
           label={q.message}
-          initialValue={answers[q.name]}
-          focus={false}
+          value={answers[q.name]}
         />
       ))}
       {question && (
-        <Field
+        <Field.Text
           key={question.name}
           label={question.message}
           initialValue={question.initialValue}

@@ -5,7 +5,7 @@ export type ErrorBoxProps = {
   error: string | boolean;
 };
 
-export const ErrorBox: React.FC<ErrorBoxProps> = ({ error }) => {
+export const ErrorMessage: React.FC<ErrorBoxProps> = ({ error }) => {
   if (!error) {
     return null;
   }

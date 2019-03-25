@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
-import { Box, Color } from 'ink';
+import { Box } from 'ink';
 import TextInput from 'ink-text-input';
 
-export type FieldValidation = boolean | string;
+import { ErrorMessage } from './Error';
+import { Label } from './Label';
+import { FieldValidation } from './types';
 
-export type FieldProps = {
+export type TextFieldProps = {
   label: string;
+  onSubmit: (value: string) => void;
   initialValue?: string;
-  onSubmit?: (value: string) => void;
   validate?: (value: string) => FieldValidation;
   focus?: boolean;
 };
 
-export const Field: React.FC<FieldProps> = ({
+export const TextField: React.FC<TextFieldProps> = ({
   label,
   initialValue = '',
   onSubmit = () => {},
   validate = () => true,
-  focus = true,
+  focus,
 }) => {
   const [state, setState] = useState<{ value: string; error: FieldValidation }>(
     {
@@ -33,15 +35,13 @@ export const Field: React.FC<FieldProps> = ({
       ? onSubmit(value)
       : setState({
           value,
-          error: isValid,
+          error: !isValid,
         });
   };
 
   return (
     <Box>
-      <Box marginRight={1}>
-        <Color green>{label}</Color>
-      </Box>
+      <Label>{label}</Label>
       <Box flexGrow={1}>
         <TextInput
           focus={focus}
@@ -50,13 +50,7 @@ export const Field: React.FC<FieldProps> = ({
           onSubmit={handleSubmit}
         />
       </Box>
-      {state.error && (
-        <Box>
-          <Color redBright bold>
-            🚨 {state.error === true ? 'Invalid input.' : state.error}
-          </Color>
-        </Box>
-      )}
+      <ErrorMessage error={state.error} />
     </Box>
   );
 };

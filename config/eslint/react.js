@@ -12,6 +12,11 @@ module.exports = createConfig(['xo-react/space'], {
   'react/jsx-tag-spacing': 'off',
 
   /**
+   * Don't bother with stylistic rules.
+   */
+  'react/jsx-sort-props': 'off',
+
+  /**
    * Enforcing return types is annoying with React and TS,
    * since usually you're using `React.FC` anyway.
    */
