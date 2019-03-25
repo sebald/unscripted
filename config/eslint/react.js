@@ -5,6 +5,12 @@ module.exports = createConfig(['xo-react/space'], {
    * Propt type validation is done via TypeScript.
    */
   'react/prop-types': 'off',
+
+  /**
+   * Taken care of by `prettier`.
+   */
+  'react/jsx-tag-spacing': 'off',
+
   /**
    * Enforcing return types is annoying with React and TS,
    * since usually you're using `React.FC` anyway.
