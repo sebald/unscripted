@@ -17,13 +17,17 @@
     "lib"
   ],
   "dependencies": {
+    "figures": "2.0.0",
     "ink": "2.0.6",
-    "ink-text-input": "3.0.0",
+    "ink-select-input": "3.1.0",
+    "ink-text-input": "3.1.0",
+    "install": "0.12.2",
     "react": "16.8.4"
   },
   "devDependencies": {
+    "@types/figures": "2.0.0",
+    "@types/ink-select-input": "file:../../@types/ink-select-input",
     "@types/ink-testing-library": "1.0.0",
-    "@types/ink-text-input": "file:../../@types/ink-text-input",
     "@types/node": "11.9.5",
     "@types/react": "16.8.8",
     "@unscripted/eslint-config": "*",

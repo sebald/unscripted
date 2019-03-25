@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Color } from 'ink';
+import figures from 'figures';
 
 export type ErrorBoxProps = {
   error: string | boolean;
@@ -14,7 +15,7 @@ export const ErrorMessage: React.FC<ErrorBoxProps> = ({ error }) => {
   return (
     <Box>
       <Color redBright bold>
-        ✖ {message}
+        {figures.cross} {message}
       </Color>
     </Box>
   );

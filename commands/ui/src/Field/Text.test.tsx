@@ -10,7 +10,7 @@ test('render text field', () => {
   const { lastFrame } = render(
     <TextField label="Label:" initialValue="foo" onSubmit={jest.fn()} />
   );
-  expect(strip(lastFrame())).toMatchInlineSnapshot(`"Label: foo"`);
+  expect(strip(lastFrame())).toMatchInlineSnapshot(`"Label: foo "`);
 });
 
 test('handle input', () => {
@@ -21,7 +21,7 @@ test('handle input', () => {
   expect(strip(lastFrame())).toMatchInlineSnapshot(`"Label:  "`);
 
   stdin.write('hello');
-  expect(strip(lastFrame())).toMatchInlineSnapshot(`"Label: hello"`);
+  expect(strip(lastFrame())).toMatchInlineSnapshot(`"Label: hello "`);
 });
 
 test('calls "onSubmit" handler when input is valid', () => {

@@ -1003,15 +1003,20 @@
   dependencies:
     "@types/node" "*"
 
+"@types/figures@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/figures/-/figures-2.0.0.tgz#e624a9ad71db49b9c8b9bbd59fe1ad04c443913c"
+  integrity sha512-mcRgJ+ncKuNI+Dwac7omO18B8C8u+YBS+AU/oyLhEyjAnT3cUUThhHgZpbiIvu5ZqSvdD30BXtrqg9nxc3OKMg==
+
+"@types/ink-select-input@file:@types/ink-select-input":
+  version "0.0.0"
+
 "@types/ink-testing-library@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/ink-testing-library/-/ink-testing-library-1.0.0.tgz#e135b64f9b1e63b39f9c34b0dfb31a206b8e3b5b"
   integrity sha512-5bY/Zoh8exys8/CuM2xjvEKMyEGVqKG6q3rLdoCzDLgIxOFH4ekct96S8QNVIvfYFXfIjj38NFVEGsWo8r+NYA==
   dependencies:
     "@types/ink" "*"
-
-"@types/ink-text-input@file:@types/ink-text-input":
-  version "0.0.0"
 
 "@types/ink@*":
   version "0.5.1"
@@ -1286,6 +1291,11 @@ arr-flatten@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/arr-flatten/-/arr-flatten-1.1.0.tgz#36048bbff4e7b47e136644316c99669ea5ae91f1"
   integrity sha512-L3hKV5R/p5o81R7O02IGnwpDmkp6E982XhtbuwSe3O4qOtMMMtodicASA1Cny2U+aCXcNpml+m4dPsvsJ3jatg==
+
+arr-rotate@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/arr-rotate/-/arr-rotate-1.0.0.tgz#c11877d06a0a42beb39ab8956a06779d9b71d248"
+  integrity sha512-yOzOZcR9Tn7enTF66bqKorGGH0F36vcPaSWg8fO0c0UYb3LX3VMXj5ZxEqQLNOecAhlRJ7wYZja5i4jTlnbIfQ==
 
 arr-union@^3.1.0:
   version "3.1.0"
@@ -2792,7 +2802,7 @@ figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
   resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
   integrity sha512-vNKxJHTEKNThjfrdJwHc7brvM6eVevuO5nTj6ez8ZQ1qbXTvGthucRF7S4vf2cr71QVnT70V34v0S1DyQsti0w==
 
-figures@^2.0.0:
+figures@2.0.0, figures@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/figures/-/figures-2.0.0.tgz#3ab1a2d2a62c8bfb431a0c94cb797a2fce27c962"
   integrity sha1-OrGi0qYsi/tDGgyUy3l6L84nyWI=
@@ -3365,15 +3375,25 @@ init-package-json@^1.10.3:
     validate-npm-package-license "^3.0.1"
     validate-npm-package-name "^3.0.0"
 
+ink-select-input@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/ink-select-input/-/ink-select-input-3.1.0.tgz#f653c5470d1c1760e0b2e93cab028289958a5cb9"
+  integrity sha512-wZOrDaaUqhVBAzbgeDAI1tdrWvgraw5RGpyxi0YD+R7SoRB6EglD5ZA6f1A8Rds0ZC/lwk0/Wrzz6VxQ6Ew+wg==
+  dependencies:
+    arr-rotate "^1.0.0"
+    figures "^2.0.0"
+    lodash.isequal "^4.5.0"
+    prop-types "^15.5.10"
+
 ink-testing-library@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ink-testing-library/-/ink-testing-library-1.0.1.tgz#6a068997e66522c88b58c5ff65181faf5b932f88"
   integrity sha512-RT/JU1NDcf3XdSWsN9kcJHEd6zX5Sb4kt5SFlfnJiKIzt2xdPdbWCrhBdEOFtdP9Nu282HU3AJ1zt7yYUpyljw==
 
-ink-text-input@3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ink-text-input/-/ink-text-input-3.0.0.tgz#711691b8e9d3b46089ea2807a6f3f96d6e60b409"
-  integrity sha512-q2TM+E+Qf/zycCxLIvijmN3U6+rweW9P2991Lt3i0sshKtCCtwg2dS+7bspS6BFLWeuvn5/V2y4JJRFWiyLYIA==
+ink-text-input@3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/ink-text-input/-/ink-text-input-3.1.0.tgz#d5090e679c05a4047dbff587a2d5057f15b7066c"
+  integrity sha512-jNUMbXeaSAL6BclGkzUdTZeOB3QOWubJ3CgrstNlQqyXp2FxK3QKX9tLYYlkYPmaInCUNBfRsmHeLbKP1A0JWg==
   dependencies:
     prop-types "^15.5.10"
 
@@ -3415,6 +3435,11 @@ inquirer@^6.2.0, inquirer@^6.2.2:
     string-width "^2.1.0"
     strip-ansi "^5.0.0"
     through "^2.3.6"
+
+install@0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/install/-/install-0.12.2.tgz#ea10e9b2cbb5b0484f25080b24b5b34429d9f564"
+  integrity sha512-+7thTb4Rpvs9mnlhHKGZFJbGOO6kyMgy+gg0sgM5vFzIFK0wrCYXqdlaM71Bi289DTuPHf61puMFsaZBcwDIrg==
 
 invariant@^2.2.4:
   version "2.2.4"
@@ -4408,6 +4433,11 @@ lodash.get@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
   integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
 
 lodash.set@^4.3.2:
   version "4.3.2"

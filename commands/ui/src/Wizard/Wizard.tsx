@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import * as Field from '../Field';
+
+import { Question } from './Question';
 import { useWizard, WizardQuestion } from './useWizard';
 
 // Types
@@ -18,30 +19,26 @@ export type WizardProps = {
 // ---------------
 export const Wizard: React.FC<WizardProps> = ({ questions, onDone }) => {
   const [{ answers, done, idx }, submit] = useWizard(questions);
+  const question = questions[idx];
+
   useEffect(() => {
     if (done) {
       onDone(answers);
     }
   }, [answers, done, onDone]);
 
-  const question = questions[idx];
-
   return (
     <>
       {questions.slice(0, idx).map(q => (
-        <Field.ReadOnly
+        <Question
           key={q.name}
-          label={q.message}
+          type="static"
+          message={q.message}
           value={answers[q.name]}
         />
       ))}
       {question && (
-        <Field.Text
-          key={question.name}
-          label={question.message}
-          initialValue={question.initialValue}
-          onSubmit={submit}
-        />
+        <Question key={question.name} onSubmit={submit} {...question} />
       )}
     </>
   );

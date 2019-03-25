@@ -28,11 +28,21 @@ export const Create: React.FC<CreateProps> = ({ exit }) => {
       type: 'text',
     },
     {
-      message: 'Enter location:',
+      message: 'Select location:',
       name: 'location',
-      type: 'text',
+      type: 'select',
+      items: [
+        {
+          label: 'Foo',
+          value: 'foo',
+        },
+        {
+          label: 'Bar',
+          value: 'bar',
+        },
+      ],
     },
   ];
 
-  return <Wizard questions={questions} onDone={done}/>;
+  return <Wizard questions={questions} onDone={done} />;
 };

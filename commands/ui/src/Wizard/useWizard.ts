@@ -2,12 +2,20 @@ import { useState } from 'react';
 
 // Types
 // ---------------
-export type WizardQuestion = {
-  message: string;
-  type: 'text';
-  name: string;
-  initialValue?: string;
-};
+export type WizardQuestion =
+  | {
+      message: string;
+      type: 'text';
+      name: string;
+      initialValue?: string;
+    }
+  | {
+      message: string;
+      type: 'select';
+      name: string;
+      initialValue?: string;
+      items: { label: string; value: string }[];
+    };
 
 export type WizardAnswer = { [name: string]: string };
 
