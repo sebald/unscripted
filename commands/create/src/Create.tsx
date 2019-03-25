@@ -23,12 +23,12 @@ export const Create: React.FC<CreateProps> = ({ exit }) => {
 
   const questions: WizardQuestion[] = [
     {
-      label: 'Enter module name:',
+      message: 'Enter module name:',
       name: 'name',
       type: 'text',
     },
     {
-      label: 'Enter location:',
+      message: 'Enter location:',
       name: 'location',
       type: 'text',
     },

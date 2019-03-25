@@ -4,9 +4,7 @@ import { render, cleanup } from 'ink-testing-library';
 
 import { Field } from './Field';
 
-afterEach(() => {
-  cleanup();
-});
+afterEach(cleanup);
 
 test('render field', () => {
   const { lastFrame } = render(

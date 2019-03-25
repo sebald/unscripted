@@ -1,2 +1,2 @@
-export * from './Field';
+export * from './Field/Field';
 export * from './Wizard';
