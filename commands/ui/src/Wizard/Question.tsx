@@ -74,5 +74,5 @@ export const Question: React.FC<QuestionProps> = props => {
     );
   }
 
-  return null;
+  throw new Error(`Type "${(props as QuestionProps).type}" is not supported.`);
 };
