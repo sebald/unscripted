@@ -1,10 +1,10 @@
 import { tmpdir } from 'os';
 import path from 'path';
 
-import { findWorkspaceRoot, getWorkspacesInfo } from '.';
+import { findManifestInfo, getWorkspacesInfo } from '.';
 
 test('find workspace root (within monorepo)', () => {
-  const ws = findWorkspaceRoot(__dirname);
+  const ws = findManifestInfo(__dirname);
   if (ws === null) {
     throw new Error('No workspaces found.');
   }
@@ -12,23 +12,8 @@ test('find workspace root (within monorepo)', () => {
   expect(path.relative(__dirname, ws.path)).toMatchInlineSnapshot(`"../.."`);
 });
 
-test('find workspace globs (within monorepo)', () => {
-  const ws = findWorkspaceRoot(__dirname);
-  if (ws === null) {
-    throw new Error('No workspaces found.');
-  }
-
-  expect(ws.globs).toMatchInlineSnapshot(`
-Array [
-  "config/*",
-  "commands/*",
-  "utils",
-]
-`);
-});
-
 test('find workspace root (not in monorepo)', () => {
-  expect(findWorkspaceRoot(tmpdir())).toMatchInlineSnapshot(`null`);
+  expect(findManifestInfo(tmpdir())).toMatchInlineSnapshot(`null`);
 });
 
 test('get workspaces (within monorepo)', () => {

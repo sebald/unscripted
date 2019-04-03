@@ -1,13 +1,25 @@
 /**
  * `package.json` definition.
  */
-export type PackageJson = {
+export type Manifest = {
   name: string;
   version?: string;
+  repository?:
+    | string
+    | {
+        type: string;
+        url: string;
+        directory?: string;
+      };
   workspaces?: string[];
   scripts?: { [name: string]: string };
   [key: string]: unknown;
 };
+
+/**
+ * `package.json` definition with workspaces.
+ */
+export type WorkspaceManifest = Manifest & { workspaces: string[] };
 
 /**
  * Yarn workspace information.
@@ -43,6 +55,11 @@ export type YarnWorkspaceInfo = {
    * Map of local packages and their worspace information.
    */
   workspaces: { [name: string]: YarnWorkspace };
+
+  /**
+   * The manifest (aka `package.json` with workspaces).
+   */
+  manifest: WorkspaceManifest;
 };
 
 /**
