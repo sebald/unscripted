@@ -10,15 +10,18 @@ export type CreateProps = {
   };
 };
 
-export const Create: React.FC<CreateProps> = ({ exit }) => {
-  // Const validate = (val: string) => {
-  //   const ws = workspaces[val];
-  //   return ws ? 'An module with that name already exists.' : true;
-  // };
-
+export const Create: React.FC<CreateProps> = ({ workspaces, exit }) => {
   const done = (result: WizardResult) => {
     process.stdin.write(JSON.stringify(result));
     exit();
+  };
+
+  const validate = (val: string) => {
+    if (val in workspaces) {
+      return 'An module with that name already exists.';
+    }
+
+    return true;
   };
 
   const questions: WizardQuestion[] = [
@@ -26,6 +29,7 @@ export const Create: React.FC<CreateProps> = ({ exit }) => {
       message: 'Enter module name:',
       name: 'name',
       type: 'text',
+      validate,
     },
     {
       message: 'Select location:',

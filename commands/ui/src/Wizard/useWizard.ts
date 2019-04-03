@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FieldValidation } from '../Field';
 
 // Types
 // ---------------
@@ -8,6 +9,7 @@ export type WizardQuestion =
       type: 'text';
       name: string;
       initialValue?: string;
+      validate?: (value: string) => FieldValidation;
     }
   | {
       message: string;

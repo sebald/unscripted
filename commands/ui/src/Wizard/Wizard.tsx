@@ -26,6 +26,7 @@ export const Wizard: React.FC<WizardProps> = ({ questions, onDone }) => {
       onDone(answers);
     }
   }, [answers, done, onDone]);
+
   return (
     <>
       {questions.slice(0, idx).map(q => (

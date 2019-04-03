@@ -16,6 +16,7 @@ export type TextQuestionProps = {
   message: string;
   initialValue?: string;
   onSubmit: (value: string) => void;
+  validate?: (value: string) => Field.FieldValidation;
 };
 
 export type SelectQuestionProps = {
@@ -58,6 +59,7 @@ export const Question: React.FC<QuestionProps> = props => {
       <Field.Text
         label={props.message}
         initialValue={props.initialValue}
+        validate={props.validate}
         onSubmit={props.onSubmit}
       />
     );

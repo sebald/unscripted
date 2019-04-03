@@ -17,10 +17,10 @@
     "lib"
   ],
   "dependencies": {
-    "@unscripted/utils": "*",
     "@unscripted/ui": "*",
-    "ink": "2.0.6",
-    "react": "16.8.4"
+    "@unscripted/utils": "*",
+    "ink": "2.1.1",
+    "react": "16.8.6"
   },
   "devDependencies": {
     "@types/node": "11.9.5",

@@ -30,25 +30,30 @@ export const TextField: React.FC<TextFieldProps> = ({
 
   const handleChange = (value: string) => setState({ value, error: false });
   const handleSubmit = (value: string) => {
-    const isValid = validate(value);
-    return validate(value)
-      ? onSubmit(value)
-      : setState({
-          value,
-          error: !isValid,
-        });
+    const result = validate(value);
+
+    if (result === true) {
+      return onSubmit(value);
+    }
+
+    setState({
+      value,
+      error: result,
+    });
   };
 
   return (
-    <Box>
-      <Label>{label}</Label>
-      <Box flexGrow={1}>
-        <TextInput
-          focus={focus}
-          value={state.value}
-          onChange={handleChange}
-          onSubmit={handleSubmit}
-        />
+    <Box flexDirection="column">
+      <Box>
+        <Label>{label}</Label>
+        <Box flexGrow={1}>
+          <TextInput
+            focus={focus}
+            value={state.value}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+          />
+        </Box>
       </Box>
       <ErrorMessage error={state.error} />
     </Box>
