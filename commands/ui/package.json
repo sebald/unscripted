@@ -2,7 +2,7 @@
   "name": "@unscripted/ui",
   "description": "Unscripted Ink-based UI",
   "version": "0.0.0",
-  "repository": "sebald/caboodle",
+  "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
   "license": "MIT",
   "keywords": [

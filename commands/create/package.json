@@ -2,7 +2,7 @@
   "name": "@unscripted/create",
   "description": "Create a new module",
   "version": "0.0.0",
-  "repository": "sebald/caboodle",
+  "repository": "sebald/unscripted",
   "author": "Sebastian Sebald <sebastian.sebald@gmail.com>",
   "license": "MIT",
   "keywords": [

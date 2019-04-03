@@ -38,7 +38,7 @@ export const Create: React.FC<CreateProps> = ({
       validate,
     },
     {
-      message: 'Select workspace:',
+      message: 'Select location:',
       name: 'location',
       type: 'select',
       items: locations.map(value => ({
