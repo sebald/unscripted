@@ -1,4 +1,5 @@
 import React from 'react';
+import path from 'path';
 
 import { YarnWorkspace } from '@unscripted/utils';
 import { Wizard, WizardQuestion, WizardResult } from '@unscripted/ui';
@@ -8,9 +9,14 @@ export type CreateProps = {
   workspaces: {
     [name: string]: YarnWorkspace;
   };
+  locations: string[];
 };
 
-export const Create: React.FC<CreateProps> = ({ workspaces, exit }) => {
+export const Create: React.FC<CreateProps> = ({
+  workspaces,
+  locations,
+  exit,
+}) => {
   const done = (result: WizardResult) => {
     process.stdin.write(JSON.stringify(result));
     exit();
@@ -32,19 +38,13 @@ export const Create: React.FC<CreateProps> = ({ workspaces, exit }) => {
       validate,
     },
     {
-      message: 'Select location:',
+      message: 'Select workspace:',
       name: 'location',
       type: 'select',
-      items: [
-        {
-          label: 'Foo',
-          value: 'foo',
-        },
-        {
-          label: 'Bar',
-          value: 'bar',
-        },
-      ],
+      items: locations.map(value => ({
+        label: value.split(path.sep).pop()!,
+        value,
+      })),
     },
   ];
 

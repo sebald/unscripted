@@ -4,10 +4,15 @@ import { render, AppContext } from 'ink';
 import { getWorkspacesInfo } from '@unscripted/utils';
 import { Create } from './Create';
 
-const { workspaces } = getWorkspacesInfo(process.cwd()) || { workspaces: {} };
+const { workspaces, locations } = getWorkspacesInfo(process.cwd()) || {
+  workspaces: {},
+  locations: [],
+};
 
 render(
   <AppContext.Consumer>
-    {({ exit }) => <Create workspaces={workspaces} exit={exit} />}
+    {({ exit }) => (
+      <Create workspaces={workspaces} locations={locations} exit={exit} />
+    )}
   </AppContext.Consumer>
 );
