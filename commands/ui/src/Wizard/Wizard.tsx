@@ -10,14 +10,17 @@ export type WizardResult<Keys extends string = string> = {
   [name in Keys]: string
 };
 
-export type WizardProps = {
+export type WizardProps<Keys extends string> = {
   questions: WizardQuestion[];
-  onDone: <Keys extends string = string>(result: WizardResult<Keys>) => any;
+  onDone: (result: WizardResult<Keys>) => any;
 };
 
 // Component
 // ---------------
-export const Wizard: React.FC<WizardProps> = ({ questions, onDone }) => {
+export const Wizard = <Keys extends string = string>({
+  questions,
+  onDone,
+}: WizardProps<Keys>) => {
   const [{ answers, done, idx }, submit] = useWizard(questions);
   const question = questions[idx];
 

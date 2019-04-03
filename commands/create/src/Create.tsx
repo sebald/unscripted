@@ -2,7 +2,8 @@ import React from 'react';
 import path from 'path';
 
 import { YarnWorkspace } from '@unscripted/utils';
-import { Wizard, WizardQuestion, WizardResult } from '@unscripted/ui';
+import { Wizard, WizardQuestion } from '@unscripted/ui';
+import { createModule, ModuleConfig } from './create-module';
 
 export type CreateProps = {
   exit: () => void;
@@ -17,8 +18,9 @@ export const Create: React.FC<CreateProps> = ({
   locations,
   exit,
 }) => {
-  const done = (result: WizardResult) => {
+  const done = async (result: ModuleConfig) => {
     process.stdin.write(JSON.stringify(result));
+    await createModule(result);
     exit();
   };
 
@@ -36,6 +38,11 @@ export const Create: React.FC<CreateProps> = ({
       name: 'name',
       type: 'text',
       validate,
+    },
+    {
+      message: 'Enter module description:',
+      name: 'description',
+      type: 'text',
     },
     {
       message: 'Select location:',
