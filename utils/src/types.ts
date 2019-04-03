@@ -30,9 +30,14 @@ export type YarnWorkspace = {
  */
 export type YarnWorkspaceInfo = {
   /**
-   * Absolute path to the workspace root
+   * Absolute path to the workspace root.
    */
   path: string;
+
+  /**
+   * Locations where workspaces live.
+   */
+  locations: string[];
 
   /**
    * Map of local packages and their worspace information.

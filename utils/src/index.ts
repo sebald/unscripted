@@ -1,4 +1,5 @@
 import execa from 'execa';
+import globParent from 'glob-parent';
 import path from 'path';
 import { sync as readJson } from 'load-json-file';
 import { EOL } from 'os';
@@ -29,7 +30,9 @@ export const readPackage = (cwd: string): PackageJson | null => {
  *
  * @param cwd current working directory
  */
-export const findWorkspaceRoot = (cwd: string): string | null => {
+export const findWorkspaceRoot = (
+  cwd: string
+): { path: string; globs: string[] } | null => {
   let previous = null;
   let current = path.normalize(cwd);
 
@@ -39,7 +42,7 @@ export const findWorkspaceRoot = (cwd: string): string | null => {
     if (ws) {
       const relativePath = path.relative(current, cwd);
       if (relativePath === '' || ws.length > 0) {
-        return current;
+        return { path: current, globs: ws };
       }
 
       return null;
@@ -71,14 +74,19 @@ export const getWorkspacesInfo = (cwd: string): YarnWorkspaceInfo | null => {
    * If there is no "log" message, there are no workspaces.
    */
   const output = execa
-    .sync('yarn', ['workspaces', 'info', '--json'], { cwd: root })
+    .sync('yarn', ['workspaces', 'info', '--json'], { cwd: root.path })
     .stdout.split(EOL)
     .map(line => JSON.parse(line) as YarnWorkspacesStdout);
   const info = output.find(item => item.type === 'log');
 
   return info
     ? {
-        path: root,
+        path: root.path,
+        locations: root.globs
+          .map(globParent)
+          // Remove "absolute" workspaces
+          .filter(dir => dir !== '.')
+          .map(dir => path.resolve(root.path, dir)),
         workspaces: JSON.parse(info.data),
       }
     : null;
