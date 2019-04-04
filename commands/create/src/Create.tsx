@@ -1,26 +1,25 @@
 import React from 'react';
 import path from 'path';
 
-import { YarnWorkspace } from '@unscripted/utils';
+import { YarnWorkspaceInfo } from '@unscripted/utils';
 import { Wizard, WizardQuestion } from '@unscripted/ui';
-import { createModule, ModuleConfig } from './create-module';
+import { createModule } from './create-module';
 
 export type CreateProps = {
   exit: () => void;
-  workspaces: {
-    [name: string]: YarnWorkspace;
-  };
-  locations: string[];
+  info: YarnWorkspaceInfo;
 };
 
-export const Create: React.FC<CreateProps> = ({
-  workspaces,
-  locations,
-  exit,
-}) => {
-  const done = async (result: ModuleConfig) => {
-    process.stdin.write(JSON.stringify(result));
-    await createModule(result);
+export const Create: React.FC<CreateProps> = ({ info, exit }) => {
+  const { workspaces, locations } = info;
+
+  const done = async (
+    result: Record<'name' | 'description' | 'location', string>
+  ) => {
+    await createModule({
+      module: result,
+      info,
+    });
     exit();
   };
 
@@ -48,10 +47,13 @@ export const Create: React.FC<CreateProps> = ({
       message: 'Select location:',
       name: 'location',
       type: 'select',
-      items: locations.map(value => ({
-        label: value.split(path.sep).pop()!,
-        value,
-      })),
+      items: locations
+        .map(value => ({
+          label: value.split(path.sep).pop()!,
+          value,
+        }))
+        // Sort alphabetically
+        .sort((a, b) => a.label.localeCompare(b.label)),
     },
   ];
 

@@ -1020,6 +1020,9 @@
   resolved "https://registry.yarnpkg.com/@types/glob-parent/-/glob-parent-3.1.1.tgz#bd10e8e258b6a558a0a9a727546f22e3d42bb35a"
   integrity sha512-Xf7dSA6kVHyV82mo/ZA6G+ykZ0oWApF8ZqvLRKdi4sWlNpM6vp/Djfmu+byyg3YGtIN/QrGxlF1GvMlnRe9fkg==
 
+"@types/hosted-git-info@file:@types/hosted-git-info":
+  version "0.0.0"
+
 "@types/ink-select-input@file:@types/ink-select-input":
   version "0.0.0"
 
@@ -3282,7 +3285,7 @@ has@^1.0.1, has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hosted-git-info@^2.1.4, hosted-git-info@^2.6.0:
+hosted-git-info@2.7.1, hosted-git-info@^2.1.4, hosted-git-info@^2.6.0:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
   integrity sha512-7T/BxH19zbcCTa8XkMlbK5lTo1WtgkFi3GvdWEyNuc4Vex7/9Dqbnpsf4JMydcfj9HCg4zUWFTL3Za6lapg5/w==

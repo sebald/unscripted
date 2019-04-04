@@ -1,18 +1,19 @@
 import React from 'react';
-import { render, AppContext } from 'ink';
+import { render, AppContext, Color } from 'ink';
 
 import { getWorkspacesInfo } from '@unscripted/utils';
 import { Create } from './Create';
 
-const { workspaces, locations } = getWorkspacesInfo(process.cwd()) || {
-  workspaces: {},
-  locations: [],
-};
+const info = getWorkspacesInfo(process.cwd());
 
 render(
-  <AppContext.Consumer>
-    {({ exit }) => (
-      <Create workspaces={workspaces} locations={locations} exit={exit} />
-    )}
-  </AppContext.Consumer>
+  info ? (
+    <AppContext.Consumer>
+      {({ exit }) => <Create info={info} exit={exit} />}
+    </AppContext.Consumer>
+  ) : (
+    <Color redBright>
+      Only repositories with workspaces are currently supported!
+    </Color>
+  )
 );

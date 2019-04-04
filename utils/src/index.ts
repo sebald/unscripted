@@ -101,4 +101,28 @@ export const getWorkspacesInfo = (cwd: string): YarnWorkspaceInfo | null => {
     : null;
 };
 
-export const parseRepositoryUrl = fromUrl;
+export const parseRepositoryField = (
+  field: Manifest['repository']
+): { type: string; url: string } | null => {
+  if (!field) {
+    return null;
+  }
+
+  if (typeof field === 'object') {
+    return {
+      type: field.type,
+      url: field.url,
+    };
+  }
+
+  const info = fromUrl(field);
+
+  if (!info) {
+    return null;
+  }
+
+  return {
+    type: 'git',
+    url: info.https(),
+  };
+};

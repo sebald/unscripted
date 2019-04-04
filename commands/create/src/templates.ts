@@ -1,5 +1,6 @@
-import camelCase from 'lodash.camelcase';
+import { Manifest } from '@unscripted/utils';
 import fs from 'fs-extra';
+import camelCase from 'lodash.camelcase';
 import path from 'path';
 
 // Shared
@@ -14,14 +15,22 @@ export type PackageJsonConfig = {
   target: string;
   name: string;
   description: string;
+  repository: Manifest['repository'];
 };
 
 export const createPackageJson = async (config: PackageJsonConfig) => {
+  const repository = config.repository
+    ? {
+        repository: config.repository,
+      }
+    : {};
+
   const content = {
     name: config.name,
     description: config.description,
     version: '0.0.1',
     licence: 'MIT',
+    ...repository,
     main: `${BUILD_DIR}/index.js`,
     files: [BUILD_DIR],
     dependencies: {},

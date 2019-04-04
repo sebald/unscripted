@@ -1,7 +1,7 @@
 import { tmpdir } from 'os';
 import path from 'path';
 
-import { findManifestInfo, getWorkspacesInfo } from '.';
+import { findManifestInfo, getWorkspacesInfo, parseRepositoryField } from '.';
 
 test('find workspace root (within monorepo)', () => {
   const ws = findManifestInfo(__dirname);
@@ -44,4 +44,33 @@ Array [
 
 test('get workspaces (not in monorepo)', () => {
   expect(getWorkspacesInfo(tmpdir())).toEqual(null);
+});
+
+test('parse repository field', () => {
+  expect(parseRepositoryField('sebald/unscripted')).toMatchInlineSnapshot(`
+Object {
+  "type": "git",
+  "url": "git+https://github.com/sebald/unscripted.git",
+}
+`);
+
+  expect(
+    parseRepositoryField({
+      type: 'git',
+      url: 'git+https://github.com/sebald/unscripted.git',
+    })
+  ).toMatchInlineSnapshot(`
+Object {
+  "type": "git",
+  "url": "git+https://github.com/sebald/unscripted.git",
+}
+`);
+
+  expect(parseRepositoryField('https://github.com/foo/bar.git'))
+    .toMatchInlineSnapshot(`
+Object {
+  "type": "git",
+  "url": "git+https://github.com/foo/bar.git",
+}
+`);
 });
