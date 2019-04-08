@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import path from 'path';
+import { Box } from 'ink';
 
 import { YarnWorkspaceInfo } from '@unscripted/utils';
-import { Wizard, WizardQuestion } from '@unscripted/ui';
+import { Spinner, Wizard, WizardQuestion } from '@unscripted/ui';
 import { createModule } from './create-module';
+
+export type CreateCommandState =
+  | {
+      type: 'init';
+      data: null;
+    }
+  | {
+      type: 'answered';
+      data: Record<'name' | 'description' | 'location', string>;
+    }
+  | {
+      type: 'creating';
+      data: null;
+    }
+  | {
+      type: 'success';
+      data: null;
+    };
 
 export type CreateProps = {
   exit: () => void;
@@ -12,31 +31,44 @@ export type CreateProps = {
 
 export const Create: React.FC<CreateProps> = ({ info, exit }) => {
   const { workspaces, locations } = info;
+  const [state, setState] = useState<CreateCommandState>({
+    type: 'init',
+    data: null,
+  });
 
-  const done = async (
-    result: Record<'name' | 'description' | 'location', string>
-  ) => {
-    await createModule({
-      module: result,
-      info,
-    });
-    exit();
-  };
+  useEffect(() => {
+    if (state.type === 'answered') {
+      const create = async () => {
+        setState({ type: 'creating', data: null });
+        await createModule({
+          module: state.data,
+          info,
+        });
+        setState({ type: 'success', data: null });
+      };
 
-  const validate = (val: string) => {
-    if (val in workspaces) {
-      return 'An module with that name already exists.';
+      create();
     }
+  }, [info, state]);
 
-    return true;
-  };
+  useEffect(() => {
+    if (state.type === 'success') {
+      exit();
+    }
+  }, [exit, state.type]);
 
   const questions: WizardQuestion[] = [
     {
       message: 'Enter module name:',
       name: 'name',
       type: 'text',
-      validate,
+      validate(val: string) {
+        if (val in workspaces) {
+          return 'An module with that name already exists.';
+        }
+
+        return true;
+      },
     },
     {
       message: 'Enter module description:',
@@ -57,5 +89,19 @@ export const Create: React.FC<CreateProps> = ({ info, exit }) => {
     },
   ];
 
-  return <Wizard questions={questions} onDone={done} />;
+  return (
+    <>
+      <Wizard
+        questions={questions}
+        onDone={result =>
+          setState({
+            type: 'answered',
+            data: result as any,
+          })
+        }
+      />
+      {state.type === 'creating' && <Spinner>Creating module ...</Spinner>}
+      {state.type === 'success' && <Box>DONE!</Box>}
+    </>
+  );
 };
